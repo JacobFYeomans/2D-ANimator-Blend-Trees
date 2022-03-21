@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New Sprite Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 0
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 3db4125b7a68f8a45b94005f98047560, type: 3}
+    totalSpriteSurfaceArea: 20480
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -5107914631765371222, guid: 3db4125b7a68f8a45b94005f98047560, type: 3}
+  - {fileID: 8366858935246809366, guid: 3db4125b7a68f8a45b94005f98047560, type: 3}
+  - {fileID: -5193737043114902788, guid: 3db4125b7a68f8a45b94005f98047560, type: 3}
+  - {fileID: 3015248080235569638, guid: 3db4125b7a68f8a45b94005f98047560, type: 3}
+  - {fileID: 8489240795490213037, guid: 3db4125b7a68f8a45b94005f98047560, type: 3}
+  - {fileID: -4619275641819355803, guid: 3db4125b7a68f8a45b94005f98047560, type: 3}
+  - {fileID: 6586532445773750691, guid: 3db4125b7a68f8a45b94005f98047560, type: 3}
+  - {fileID: -1506427803292390505, guid: 3db4125b7a68f8a45b94005f98047560, type: 3}
+  - {fileID: -6985407678727228742, guid: 3db4125b7a68f8a45b94005f98047560, type: 3}
+  - {fileID: -2779053986776931974, guid: 3db4125b7a68f8a45b94005f98047560, type: 3}
+  - {fileID: -4796755747221734327, guid: 3db4125b7a68f8a45b94005f98047560, type: 3}
+  - {fileID: -2145210811066535474, guid: 3db4125b7a68f8a45b94005f98047560, type: 3}
+  - {fileID: -7865138103926130466, guid: 3db4125b7a68f8a45b94005f98047560, type: 3}
+  - {fileID: -334270680958243934, guid: 3db4125b7a68f8a45b94005f98047560, type: 3}
+  - {fileID: -7950588575870847971, guid: 3db4125b7a68f8a45b94005f98047560, type: 3}
+  - {fileID: 6611678385165028518, guid: 3db4125b7a68f8a45b94005f98047560, type: 3}
+  - {fileID: 6681754814577285510, guid: 3db4125b7a68f8a45b94005f98047560, type: 3}
+  - {fileID: -5179339724443478887, guid: 3db4125b7a68f8a45b94005f98047560, type: 3}
+  - {fileID: -6976463543477580685, guid: 3db4125b7a68f8a45b94005f98047560, type: 3}
+  - {fileID: 9143225390730358127, guid: 3db4125b7a68f8a45b94005f98047560, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Jacob_SpriteSheet_8
+  - Jacob_SpriteSheet_9
+  - Jacob_SpriteSheet_4
+  - Jacob_SpriteSheet_5
+  - Jacob_SpriteSheet_6
+  - Jacob_SpriteSheet_7
+  - Jacob_SpriteSheet_0
+  - Jacob_SpriteSheet_1
+  - Jacob_SpriteSheet_2
+  - Jacob_SpriteSheet_3
+  - Jacob_SpriteSheet_17
+  - Jacob_SpriteSheet_16
+  - Jacob_SpriteSheet_15
+  - Jacob_SpriteSheet_14
+  - Jacob_SpriteSheet_13
+  - Jacob_SpriteSheet_12
+  - Jacob_SpriteSheet_11
+  - Jacob_SpriteSheet_10
+  - Jacob_SpriteSheet_19
+  - Jacob_SpriteSheet_18
+  m_RenderDataMap: {}
+  m_Tag: New Sprite Atlas
+  m_IsVariant: 0
