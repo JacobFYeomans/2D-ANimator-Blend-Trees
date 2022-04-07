@@ -24,6 +24,10 @@ public class InteractionObject : MonoBehaviour
     [TextArea]
     public string[] sentences;
 
+    [Header("Conditional Dialogue Text")]
+    [TextArea]
+    public string[] conSentences;
+
     public void Start()
     {
         infoText = GameObject.Find("infoText").GetComponent<Text>();
@@ -43,6 +47,8 @@ public class InteractionObject : MonoBehaviour
     public void Pickup()
     {
         this.gameObject.SetActive(false);
+        GameObject.Find("QuestManager").GetComponent<QuestManager>().shinyObjectCount++;
+
     }
 
     public void Dialogue()
