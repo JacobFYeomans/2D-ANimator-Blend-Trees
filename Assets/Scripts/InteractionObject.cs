@@ -13,20 +13,37 @@ public class InteractionObject : MonoBehaviour
         dialogue //obj has dialogue
     }
 
+    public enum CharacterType
+    {
+        nothing,
+        boy,
+        girl,
+        general,
+        solider,
+        helmet
+    }
+
     [Header("Type of interactable")]
     public InteractableType interType;
+
+    [Header("Type of character")]
+    public CharacterType charType;
 
     [Header("Simple info Message")]
     public string infoMessage;
     private Text infoText;
 
+    [Header("Conditional Dialogue Text: Before")]
+    [TextArea]
+    public string[] conSentencesBefore;
+
     [Header("Dialogue Text")]
     [TextArea]
     public string[] sentences;
 
-    [Header("Conditional Dialogue Text")]
+    [Header("Conditional Dialogue Text: After")]
     [TextArea]
-    public string[] conSentences;
+    public string[] conSentencesAfter;
 
     public void Start()
     {
@@ -53,7 +70,92 @@ public class InteractionObject : MonoBehaviour
 
     public void Dialogue()
     {
-        GameObject.Find("DialogueManager").GetComponent<DialogueManager>().StartDialogue(sentences);
+        switch (charType)
+        {
+            case CharacterType.nothing:
+                //this shouldn't happen
+                break;
+
+            case CharacterType.boy:
+                if (GameObject.Find("QuestManager").GetComponent<QuestManager>().hasKey == true)
+                {
+                    GameObject.Find("DialogueManager").GetComponent<DialogueManager>().StartDialogue(conSentencesAfter);
+                    GameObject.Find("QuestManager").GetComponent<QuestManager>().questOver = true;
+                }
+                else
+                {
+                    GameObject.Find("DialogueManager").GetComponent<DialogueManager>().StartDialogue(sentences);
+                    GameObject.Find("QuestManager").GetComponent<QuestManager>().talkedToBoy = true;
+                }
+                break;
+
+            case CharacterType.girl:
+                if (GameObject.Find("QuestManager").GetComponent<QuestManager>().foundAllShinyObjects == true)
+                {
+                    GameObject.Find("DialogueManager").GetComponent<DialogueManager>().StartDialogue(conSentencesAfter);
+                    GameObject.Find("QuestManager").GetComponent<QuestManager>().directedToGeneral = true;
+                }
+                else if (GameObject.Find("QuestManager").GetComponent<QuestManager>().talkedToBoy == true)
+                {
+                    GameObject.Find("DialogueManager").GetComponent<DialogueManager>().StartDialogue(sentences);
+                    GameObject.Find("QuestManager").GetComponent<QuestManager>().shinyQuestStarted = true;
+                }
+                else
+                {
+                    GameObject.Find("DialogueManager").GetComponent<DialogueManager>().StartDialogue(conSentencesBefore);
+                }
+                break;
+
+            case CharacterType.general:
+                if (GameObject.Find("QuestManager").GetComponent<QuestManager>().generalAwake == true)
+                {
+                    GameObject.Find("DialogueManager").GetComponent<DialogueManager>().StartDialogue(conSentencesAfter);
+                    GameObject.Find("QuestManager").GetComponent<QuestManager>().hasKey = true;
+                }
+                else if (GameObject.Find("QuestManager").GetComponent<QuestManager>().directedToGeneral == true)
+                {
+                    GameObject.Find("DialogueManager").GetComponent<DialogueManager>().StartDialogue(sentences);
+                    GameObject.Find("QuestManager").GetComponent<QuestManager>().talkedToGeneral = true;
+                }
+                else
+                {
+                    GameObject.Find("DialogueManager").GetComponent<DialogueManager>().StartDialogue(conSentencesBefore);
+                }
+                break;
+
+            case CharacterType.solider:
+                if (GameObject.Find("QuestManager").GetComponent<QuestManager>().soldierCalledGen == true)
+                {
+                    GameObject.Find("DialogueManager").GetComponent<DialogueManager>().StartDialogue(conSentencesAfter);
+                }
+                else if (GameObject.Find("QuestManager").GetComponent<QuestManager>().talkedToGeneral == true)
+                {
+                    GameObject.Find("DialogueManager").GetComponent<DialogueManager>().StartDialogue(sentences);
+                    GameObject.Find("QuestManager").GetComponent<QuestManager>().generalCalled++;
+                }
+                else
+                {
+                    GameObject.Find("DialogueManager").GetComponent<DialogueManager>().StartDialogue(conSentencesBefore);
+                }
+                break;
+
+            case CharacterType.helmet:
+                if (GameObject.Find("QuestManager").GetComponent<QuestManager>().helmentCalledGen == true)
+                {
+                    GameObject.Find("DialogueManager").GetComponent<DialogueManager>().StartDialogue(conSentencesAfter);
+                }
+                else if (GameObject.Find("QuestManager").GetComponent<QuestManager>().talkedToGeneral == true)
+                {
+                    GameObject.Find("DialogueManager").GetComponent<DialogueManager>().StartDialogue(sentences);
+                    GameObject.Find("QuestManager").GetComponent<QuestManager>().generalCalled++;
+                }
+                else
+                {
+                    GameObject.Find("DialogueManager").GetComponent<DialogueManager>().StartDialogue(conSentencesBefore);
+                }
+                break;
+        }
+        //GameObject.Find("DialogueManager").GetComponent<DialogueManager>().StartDialogue(sentences);
     }
 
     IEnumerator ShowInfo(string message, float delay)
